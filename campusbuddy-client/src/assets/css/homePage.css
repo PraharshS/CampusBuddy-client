@@ -1,0 +1,22 @@
+.homePageWrapper {
+    height: 80vh;
+    width: 100%;
+    background-image: url("../images/collegeBg.jpg");
+    background-size: cover;
+}
+
+.heroText {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.buttons {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButton {
+    margin-right: 2rem;
+}
