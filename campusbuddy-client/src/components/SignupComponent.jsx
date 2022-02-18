@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StudentService from "../services/StudentService";
+import Alert from "react-bootstrap/Alert";
 
 class SignupComponent extends Component {
   constructor(props) {
@@ -13,6 +14,9 @@ class SignupComponent extends Component {
       branch: "",
       semester: "",
       contactNumber: "",
+      alertMessage: "",
+      isAlertShow: false,
+      alertType: "danger",
     };
     this.changeNameHandler = this.changeNameHandler.bind(this);
     this.changeEmailHandler = this.changeEmailHandler.bind(this);
@@ -51,7 +55,55 @@ class SignupComponent extends Component {
   changeContactNumberHandler = (e) => {
     this.setState({ contactNumber: e.target.value });
   };
-
+  nameValidator(name) {
+    if (name.trim().length > 3) {
+      return true;
+    }
+    this.setState({ alertMessage: "Name Length must be greater than 3" });
+    this.setState({ isAlertShow: true });
+    return false;
+  }
+  emailValidator(email) {
+    const isValid = String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    if (isValid) {
+      return true;
+    }
+    this.setState({ alertMessage: "Invalid Email" });
+    this.setState({ isAlertShow: true });
+    return false;
+  }
+  passwordValidator(password) {
+    if (password.trim().length >= 6) {
+      return true;
+    }
+    this.setState({
+      alertMessage: "Password Length must be minimum 6 characters",
+    });
+    this.setState({ isAlertShow: true });
+    return false;
+  }
+  confirmPasswordValidator(confirmpassword) {
+    if (this.state.password === confirmpassword) return true;
+    this.setState({ alertMessage: "Passwords do not match" });
+    this.setState({ isAlertShow: true });
+    return false;
+  }
+  restFieldsValidator(enNumber, branch, semester, contactNumber) {
+    var isValid = true;
+    [enNumber, branch, semester, contactNumber].forEach((value) => {
+      if (value.trim().length === 0) {
+        this.setState({ alertMessage: "Fields cannot be empty" });
+        this.setState({ isAlertShow: true });
+        isValid = false;
+        return false;
+      }
+    });
+    return isValid;
+  }
   saveStudent = (e) => {
     e.preventDefault();
     let Student = {
@@ -64,12 +116,45 @@ class SignupComponent extends Component {
       semester: this.state.semester,
       contactNumber: this.state.contactNumber,
     };
-    console.log("Student => " + JSON.stringify(Student));
+    var isNameValid = this.nameValidator(this.state.name);
 
-    StudentService.createStudent(Student).then((res) => {
-      this.props.history.push("/students");
-    });
+    if (!isNameValid) {
+      return;
+    }
+    var isEmailValid = this.emailValidator(this.state.email);
+    if (!isEmailValid) {
+      return;
+    }
+    var isPasswordValid = this.passwordValidator(this.state.password);
+    if (!isPasswordValid) {
+      return;
+    }
+    var isConfirmPasswordValid = this.confirmPasswordValidator(
+      this.state.confirmPassword
+    );
+    if (!isConfirmPasswordValid) {
+      return;
+    }
+    var isValidRestFields = this.restFieldsValidator(
+      this.state.enNumber,
+      this.state.branch,
+      this.state.semester,
+      this.state.contactNumber
+    );
+    if (!isValidRestFields) {
+      return;
+    }
+    console.log("Student => " + JSON.stringify(Student));
+    this.setState({ alertMessage: "Account Created Successfully" });
+    this.setState({ isAlertShow: true });
+    this.setState({ alertType: "success" });
+    setTimeout(() => {
+      StudentService.createStudent(Student).then((res) => {
+        this.props.history.push("/students");
+      });
+    }, 3000);
   };
+
   render() {
     const { history } = this.props;
     return (
@@ -93,7 +178,7 @@ class SignupComponent extends Component {
                   <div className="form-group">
                     <label>Email</label>
                     <input
-                      type="text"
+                      type="email"
                       placeholder="Email"
                       className="form-control"
                       value={this.state.email}
@@ -160,17 +245,28 @@ class SignupComponent extends Component {
                       onChange={this.changeContactNumberHandler}
                     />
                   </div>
-                  <div className="btn btn-success" onClick={this.saveStudent}>
+                  <div
+                    className="btn btn-success"
+                    onClick={this.saveStudent}
+                    style={{ marginTop: "10px" }}
+                  >
                     Save
                   </div>
                   <div
                     className="btn btn-danger"
-                    onClick={() => history.push("/Students")}
-                    style={{ marginLeft: "10px" }}
+                    onClick={() => history.push("/students")}
+                    style={{ marginLeft: "10px", marginTop: "10px" }}
                   >
                     Cancel
                   </div>
                 </form>
+                <Alert
+                  show={this.state.isAlertShow}
+                  variant={this.state.alertType}
+                  style={{ marginTop: "10px" }}
+                >
+                  {this.state.alertMessage}
+                </Alert>
               </div>
             </div>
           </div>
