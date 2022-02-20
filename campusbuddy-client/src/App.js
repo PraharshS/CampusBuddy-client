@@ -9,6 +9,8 @@ import LoginComponent from "./components/LoginComponent";
 import SignupComponent from "./components/SignupComponent";
 import AllStudents from "./components/students/AllStudents";
 
+import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
+
 function App() {
   return (
     <Router>
@@ -19,6 +21,7 @@ function App() {
         <Route path="/login" component={LoginComponent}></Route>
         <Route path="/signup" component={SignupComponent}></Route>
         <Route path="/students" component={AllStudents}></Route>
+        <Route path="/student/dashboard" component={StudentDashBoard}></Route>
       </Switch>
 
       <FooterComponent />

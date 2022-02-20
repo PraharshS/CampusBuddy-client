@@ -9,5 +9,8 @@ class StudentService {
   createStudent(student) {
     return axios.post(STUDENT_API_BASE_URL, student);
   }
+  findByEmailAndPassword(student) {
+    return axios.post(STUDENT_API_BASE_URL + "/login", student);
+  }
 }
 export default new StudentService();
