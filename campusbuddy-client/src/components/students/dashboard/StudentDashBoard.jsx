@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import AcademicComponent from "./Academics/AcademicComponent";
+
 export default class StudentDashBoard extends Component {
   render() {
     return (
@@ -22,6 +24,7 @@ export default class StudentDashBoard extends Component {
             </div>
           ))}
         </div>
+        <AcademicComponent />
       </div>
     );
   }

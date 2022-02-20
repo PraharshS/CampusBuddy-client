@@ -10,6 +10,9 @@ import SignupComponent from "./components/SignupComponent";
 import AllStudents from "./components/students/AllStudents";
 
 import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
+import TimeTable from "./components/students/dashboard/Academics/TimeTable";
+import Holidays from "./components/students/dashboard/Academics/Holidays";
+import Notices from "./components/students/dashboard/Academics/Notices";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/signup" component={SignupComponent}></Route>
         <Route path="/students" component={AllStudents}></Route>
         <Route path="/student/dashboard" component={StudentDashBoard}></Route>
+        <Route path="/student/time-table" component={TimeTable}></Route>
+        <Route path="/student/holidays" component={Holidays}></Route>
+        <Route path="/student/notices" component={Notices}></Route>
       </Switch>
 
       <FooterComponent />

@@ -6,7 +6,7 @@ export default class LoginComponent extends Component {
     super(props);
     this.state = {
       loginEmail: "praharsh535@gmail.com",
-      loginPassword: "abcdef",
+      loginPassword: "123456",
       isAlertShow: false,
       alertType: "danger",
     };
