@@ -14,7 +14,7 @@ export default class StudentDashBoard extends Component {
           <span>branch </span>
           <span>contact </span>
           <br />
-          {this.props.location.state.map((student) => (
+          {this.props.location.state.studentList.map((student) => (
             <div key={student.id}>
               <span>{student.name} </span>
               <span>{student.email} </span>
