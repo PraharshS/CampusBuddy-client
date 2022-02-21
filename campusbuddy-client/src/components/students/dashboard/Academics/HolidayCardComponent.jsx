@@ -25,11 +25,11 @@ var cardStyle = {
     height: "100%",
     border: "2px solid black",
     boxShadow: "8px 8px 4px black",
-    padding: "1rem",
     margin: "2rem",
     textAlign: "center",
   },
   img: {
+    objectFit: "cover",
     width: "300px",
     height: "300px",
     margin: "auto",

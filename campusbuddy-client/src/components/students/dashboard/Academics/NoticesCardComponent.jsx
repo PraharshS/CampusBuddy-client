@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card } from "react-bootstrap";
-import cardBg from "../../../../assets/images/timeTableCard.png";
+import cardBg from "../../../../assets/images/noticesCard.png";
 export default class NoticesCardComponent extends Component {
   render() {
     return (
@@ -22,11 +22,11 @@ var cardStyle = {
     height: "100%",
     border: "2px solid black",
     boxShadow: "8px 8px 4px black",
-    padding: "1rem",
     margin: "2rem",
     textAlign: "center",
   },
   img: {
+    objectFit: "cover",
     width: "300px",
     height: "300px",
     margin: "auto",

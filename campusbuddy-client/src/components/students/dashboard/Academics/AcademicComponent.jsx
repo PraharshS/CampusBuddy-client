@@ -9,7 +9,7 @@ import FeedbackCardComponent from "./FeedbackCardComponent";
 export default class AcademicComponent extends Component {
   render() {
     return (
-      <div className="cardsWrapper" style={cardsWrapperStyle.div}>
+      <div className="container" style={cardsWrapperStyle.div}>
         <TimeTableCardComponent />
         <HolidayCardComponent />
         <NoticesCardComponent />
@@ -23,7 +23,6 @@ var cardsWrapperStyle = {
   div: {
     marginTop: "20px",
     marginBottom: "20px",
-    width: "100%",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "stretch",
