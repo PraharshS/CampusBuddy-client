@@ -14,6 +14,7 @@ import TimeTable from "./components/students/dashboard/Academics/TimeTable";
 import Holidays from "./components/students/dashboard/Academics/Holidays";
 import Notices from "./components/students/dashboard/Academics/Notices";
 import Feedback from "./components/students/dashboard/Academics/Feedback";
+import EditProfile from "./components/students/dashboard/EditProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" component={SignupComponent}></Route>
         <Route path="/students" component={AllStudents}></Route>
         <Route path="/student/dashboard" component={StudentDashBoard}></Route>
+        <Route path="/student/edit-profile" component={EditProfile}></Route>
         <Route path="/student/time-table" component={TimeTable}></Route>
         <Route path="/student/holidays" component={Holidays}></Route>
         <Route path="/student/notices" component={Notices}></Route>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import AcademicComponent from "./Academics/AcademicComponent";
-
+import { Link } from "react-router-dom";
 export default class StudentDashBoard extends Component {
   constructor(props) {
     super(props);
@@ -41,10 +41,14 @@ export default class StudentDashBoard extends Component {
                   {this.state.studentObj.contactNumber}
                 </td>
                 <td style={tableStyle.col}>
-                  {" "}
-                  <Button href="edit-profile" variant="primary">
-                    Edit Details
-                  </Button>
+                  <Link
+                    to={{
+                      pathname: "edit-profile",
+                      state: this.state.studentObj,
+                    }}
+                  >
+                    <Button>Click Here</Button>
+                  </Link>
                 </td>
               </tr>
             </tbody>
