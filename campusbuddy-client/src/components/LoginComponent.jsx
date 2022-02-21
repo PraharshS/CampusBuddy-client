@@ -59,25 +59,24 @@ export default class LoginComponent extends Component {
       this.setState({ isAlertShow: true });
       return;
     }
-    var studentList = [];
+    var studentObj;
     StudentService.findByEmailAndPassword(Student).then((res) => {
-      console.log(res.data);
-      studentList = res.data;
-      console.log(studentList);
-      if (studentList.length === 0) {
+      studentObj = res.data;
+      console.log(studentObj);
+      if (studentObj.id === 0) {
         this.setState({ alertMessage: "Invalid Credentials" });
         this.setState({ isAlertShow: true });
         return;
       }
 
-      console.log("Student List => " + JSON.stringify(studentList));
+      console.log("Student Obj => " + JSON.stringify(studentObj));
       this.setState({
         alertMessage: "Student Login Successfull, Redirecting to Dashboard",
       });
       this.setState({ isAlertShow: true });
       this.setState({ alertType: "success" });
       setTimeout(() => {
-        this.props.history.push("/student/dashboard", studentList);
+        this.props.history.push("/student/dashboard", studentObj);
       }, 3000);
     });
   };

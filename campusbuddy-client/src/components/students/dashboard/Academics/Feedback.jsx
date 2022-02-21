@@ -16,9 +16,9 @@ export default class Feedback extends Component {
     this.changeMessageHandler = this.changeMessageHandler.bind(this);
   }
   componentDidMount() {
-    this.setState({ student: this.props.location.state.studentInfo });
-    this.setState({ name: this.props.location.state.studentInfo.name });
-    this.setState({ email: this.props.location.state.studentInfo.email });
+    this.setState({ student: this.props.location.state });
+    this.setState({ name: this.props.location.state.name });
+    this.setState({ email: this.props.location.state.email });
   }
   changeMessageHandler = (e) => {
     this.setState({ message: e.target.value });
@@ -43,13 +43,9 @@ export default class Feedback extends Component {
     });
     this.setState({ isAlertShow: true });
     this.setState({ alertType: "success" });
-    var studentList = [];
     setTimeout(() => {
-      StudentService.sendFeedBack(feedBackObj).then((res) => {
-        studentList = [...studentList, this.state.student];
-        this.props.history.push("dashboard", {
-          studentList,
-        });
+      StudentService.sendFeedback(feedBackObj).then((res) => {
+        this.props.history.push("dashboard", this.state.student);
       });
     }, 3000);
   };

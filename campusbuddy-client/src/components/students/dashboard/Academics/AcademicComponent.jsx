@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 import AcademicBg from "../../../../assets/images/Academics.png";
-import { generatePath } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default class AcademicComponent extends Component {
   render() {
     return (
@@ -10,7 +10,6 @@ export default class AcademicComponent extends Component {
         <Card.Body>
           <Card.Title>Academics</Card.Title>
           <Card.Text>Will always keep you up to date with the events</Card.Text>
-          {console.log(generatePath)}
           <Button href="time-table" variant="primary">
             Time Table
           </Button>
@@ -20,6 +19,15 @@ export default class AcademicComponent extends Component {
           <Button href="notices" variant="warning">
             Notices
           </Button>
+
+          <Link
+            to={{
+              pathname: "feedback",
+              state: this.props.props,
+            }}
+          >
+            Feedback
+          </Link>
         </Card.Body>
       </Card>
     );

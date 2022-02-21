@@ -3,6 +3,15 @@ import React, { Component } from "react";
 import AcademicComponent from "./Academics/AcademicComponent";
 
 export default class StudentDashBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      studentObj: {},
+    };
+  }
+  componentDidMount() {
+    this.setState({ studentObj: this.props.location.state });
+  }
   render() {
     return (
       <div>
@@ -14,17 +23,16 @@ export default class StudentDashBoard extends Component {
           <span>branch </span>
           <span>contact </span>
           <br />
-          {this.props.location.state.studentList.map((student) => (
-            <div key={student.id}>
-              <span>{student.name} </span>
-              <span>{student.email} </span>
-              <span>{student.semester} </span>
-              <span>{student.branch} </span>
-              <span>{student.contact} </span>
-            </div>
-          ))}
+
+          <div>
+            <span>{this.state.studentObj.name} </span>
+            <span>{this.state.studentObj.email} </span>
+            <span>{this.state.studentObj.semester} </span>
+            <span>{this.state.studentObj.branch} </span>
+            <span>{this.state.studentObj.contact} </span>
+          </div>
         </div>
-        <AcademicComponent />
+        <AcademicComponent props={this.state.studentObj} />
       </div>
     );
   }
