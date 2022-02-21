@@ -11,6 +11,7 @@ export default class StudentDashBoard extends Component {
   }
   componentDidMount() {
     this.setState({ studentObj: this.props.location.state });
+    console.log(this.state.studentObj);
   }
   render() {
     return (
