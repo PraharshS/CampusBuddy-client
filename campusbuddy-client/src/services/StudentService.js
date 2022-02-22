@@ -10,7 +10,7 @@ class StudentService {
     return axios.post(STUDENT_API_BASE_URL + "/students", student);
   }
   updateStudent(student, studentId) {
-    return axios.put(STUDENT_API_BASE_URL + "/students" + studentId, student);
+    return axios.put(STUDENT_API_BASE_URL + "/students/" + studentId, student);
   }
   findByEmailAndPassword(student) {
     return axios.post(STUDENT_API_BASE_URL + "/students/login", student);

@@ -5,9 +5,9 @@ import Alert from "react-bootstrap/Alert";
 export default class EditProfile extends Component {
   constructor(props) {
     super(props);
-    // console.log(this.props.location.state.studentObj);
-    let studentOldInfo = this.props.location.state.studentObj;
+    let studentOldInfo = this.props.location.state;
     this.state = {
+      id: studentOldInfo.id,
       name: studentOldInfo.name,
       email: studentOldInfo.email,
       password: studentOldInfo.password,
@@ -109,6 +109,7 @@ export default class EditProfile extends Component {
   saveStudent = (e) => {
     e.preventDefault();
     let Student = {
+      id: this.state.id,
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
@@ -151,7 +152,8 @@ export default class EditProfile extends Component {
     this.setState({ isAlertShow: true });
     this.setState({ alertType: "success" });
     setTimeout(() => {
-      StudentService.createStudent(Student).then((res) => {
+      StudentService.updateStudent(Student, this.state.id).then((res) => {
+        console.log(res);
         this.props.history.push("/students");
       });
     }, 3000);
