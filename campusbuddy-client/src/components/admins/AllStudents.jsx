@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import AdminService from "../../services/AdminService";
+import StudentService from "../../services/StudentService";
 export default class AllStudents extends Component {
   constructor(props) {
     super(props);
     this.state = {
       students: [],
     };
+    this.deleteStudent = this.deleteStudent.bind(this);
+  }
+  deleteStudent(id) {
+    AdminService.deleteStudent(id).then((res) => {
+      this.setState({
+        students: this.state.students.filter((e) => e.id !== id),
+      });
+    });
   }
   componentDidMount() {
     AdminService.getStudents().then((res) => {
@@ -45,16 +54,13 @@ export default class AllStudents extends Component {
                     >
                       <Button>Edit</Button>
                     </Link>
-                    <Link
-                      to={{
-                        pathname: "delete-student",
-                        state: student,
-                      }}
+                    <Button
+                      className="mx-2"
+                      variant="danger"
+                      onClick={() => this.deleteStudent(student.id)}
                     >
-                      <Button className="mx-2" variant="danger">
-                        Delete
-                      </Button>
-                    </Link>
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               ))}

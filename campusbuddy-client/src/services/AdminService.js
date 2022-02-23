@@ -9,6 +9,9 @@ class AdminService {
   createAdmin(admin) {
     return axios.post(STUDENT_API_BASE_URL + "/admins", admin);
   }
+  deleteStudent(studentId) {
+    return axios.delete(STUDENT_API_BASE_URL + "/students/" + studentId);
+  }
   updateAdmin(admin, adminId) {
     return axios.put(STUDENT_API_BASE_URL + "/admins/" + adminId, admin);
   }
