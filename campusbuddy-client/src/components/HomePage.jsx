@@ -10,12 +10,17 @@ class HomePage extends Component {
         <div className="buttons">
           <Link to="/login">
             <Button className="loginButton" variant="primary" size="lg">
-              Login
+              Student Login
             </Button>
           </Link>
           <Link to="/signup">
             <Button className="signUpButton" variant="secondary" size="lg">
-              Sign Up
+              Student Sign Up
+            </Button>
+          </Link>
+          <Link to="/admins/login">
+            <Button className="AdminLoginButton" variant="danger" size="lg">
+              Admin Login
             </Button>
           </Link>
         </div>

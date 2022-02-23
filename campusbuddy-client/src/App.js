@@ -1,20 +1,22 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import AdminLoginComponent from "./components/admins/AdminLoginComponent";
 import FooterComponent from "./components/FooterComponent";
-
-import NavbarComponent from "./components/NavbarComponent";
 import HomePage from "./components/HomePage";
 import LoginComponent from "./components/LoginComponent";
+import NavbarComponent from "./components/NavbarComponent";
 import SignupComponent from "./components/SignupComponent";
 import AllStudents from "./components/students/AllStudents";
-
-import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
-import TimeTable from "./components/students/dashboard/Academics/TimeTable";
+import AllStudentsAdminView from "./components/admins/AllStudents";
+import Feedback from "./components/students/dashboard/Academics/Feedback";
 import Holidays from "./components/students/dashboard/Academics/Holidays";
 import Notices from "./components/students/dashboard/Academics/Notices";
-import Feedback from "./components/students/dashboard/Academics/Feedback";
+import TimeTable from "./components/students/dashboard/Academics/TimeTable";
 import EditProfile from "./components/students/dashboard/EditProfile";
+import EditProfileAdminView from "./components/admins/dashboard/EditProfile";
+import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
+import AdminDashBoard from "./components/admins/dashboard/AdminDashBoard";
 
 function App() {
   return (
@@ -32,6 +34,17 @@ function App() {
         <Route path="/student/holidays" component={Holidays}></Route>
         <Route path="/student/notices" component={Notices}></Route>
         <Route path="/student/feedback" component={Feedback}></Route>
+
+        <Route path="/admins/login" component={AdminLoginComponent}></Route>
+        <Route path="/admins/dashboard" component={AdminDashBoard}></Route>
+        <Route
+          path="/admins/all-students"
+          component={AllStudentsAdminView}
+        ></Route>
+        <Route
+          path="/admins/edit-student-profile"
+          component={EditProfileAdminView}
+        ></Route>
       </Switch>
 
       <FooterComponent />
