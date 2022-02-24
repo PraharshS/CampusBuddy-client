@@ -1,26 +1,64 @@
 .homePageWrapper {
-    height: 60vh;
+    height: calc(100vh - 55.99px);
     width: 100%;
     background-image: url("../images/collegeBg.jpg");
     background-size: cover;
-}
-
-.heroText {
-    padding-top: 2rem;
-    text-align: center;
-}
-
-.buttons {
-    height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.loginButton {
-    margin-right: 2rem;
+.heroText {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
-.signUpButton {
-    margin-right: 2rem;
+.heroWrapper {
+    height: 60vh;
+    width: 80%;
+    display: flex;
+}
+
+.left {
+    width: 50%;
+}
+
+.left img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: transparent;
+    align-items: left;
+}
+
+.right>a {
+    text-decoration: none;
+}
+
+.right>a>div {
+    color: #6C63FF;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 4px solid black;
+    background-color: white;
+    padding: 1rem 2rem;
+}
+
+.right>a>div:hover {
+    transition: all 0.4s ease-in;
+    background-color: #6C63FF;
+    color: white;
+    -webkit-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -ms-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
 }

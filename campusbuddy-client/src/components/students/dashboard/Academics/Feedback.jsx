@@ -52,15 +52,21 @@ export default class Feedback extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container" style={containerStyle.div}>
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
-              <h3 className="text-center">Feedback Form</h3>
+            <div
+              className="card col-md-6 offset-md-3 offset-md-3"
+              style={containerStyle.card}
+            >
+              <h3 className="text-center" style={containerStyle.heading}>
+                Feedback Form
+              </h3>
               <div className="card-body">
                 <form action="">
                   <div className="form-group">
-                    <label>Name</label>
+                    <label style={containerStyle.label}>Name</label>
                     <input
+                      style={containerStyle.input}
                       disabled
                       type="text"
                       placeholder="Name"
@@ -69,8 +75,9 @@ export default class Feedback extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email</label>
+                    <label style={containerStyle.label}>Email</label>
                     <input
+                      style={containerStyle.input}
                       disabled
                       type="email"
                       placeholder="Email"
@@ -79,20 +86,23 @@ export default class Feedback extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Message</label>
+                    <label style={containerStyle.label}>Message</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Feedback Message"
                       className="form-control"
                       onChange={this.changeMessageHandler}
                     />
                   </div>
-                  <div
-                    className="btn btn-success"
-                    onClick={this.sendFeedback}
-                    style={{ marginTop: "10px" }}
-                  >
-                    Submit
+                  <div style={submitButtonStyle.buttonWrapper}>
+                    <div
+                      className="btn btn-success"
+                      onClick={this.sendFeedback}
+                      style={submitButtonStyle.button}
+                    >
+                      Submit
+                    </div>
                   </div>
                 </form>
                 <Alert
@@ -110,3 +120,41 @@ export default class Feedback extends Component {
     );
   }
 }
+var containerStyle = {
+  div: {
+    marginTop: "4rem",
+    width: "60%",
+    paddingBottom: "2rem",
+  },
+  heading: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    padding: "2rem",
+  },
+  card: {
+    border: "4px solid #6C63FF",
+  },
+  label: {
+    fontSize: "1.2rem",
+    margin: "0.7rem auto",
+  },
+  input: {
+    padding: "1rem 1rem",
+    fontWeight: "bold",
+  },
+};
+var submitButtonStyle = {
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  button: {
+    marginTop: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
+    borderRadius: "0",
+    border: "2px solid black",
+    width: "30%",
+  },
+};

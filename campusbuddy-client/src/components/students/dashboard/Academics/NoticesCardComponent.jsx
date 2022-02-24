@@ -9,7 +9,7 @@ export default class NoticesCardComponent extends Component {
         <Card.Body>
           <Card.Title>Notices</Card.Title>
           <Card.Text>Info about all the events , activites etc.</Card.Text>
-          <Button href="notices" variant="primary">
+          <Button href="notices" variant="primary" style={cardStyle.btn}>
             Click Here
           </Button>
         </Card.Body>
@@ -30,5 +30,8 @@ var cardStyle = {
     width: "300px",
     height: "300px",
     margin: "auto",
+  },
+  btn: {
+    backgroundColor: "#6C63FF",
   },
 };

@@ -150,7 +150,7 @@ class SignupComponent extends Component {
     this.setState({ alertType: "success" });
     setTimeout(() => {
       StudentService.createStudent(Student).then((res) => {
-        this.props.history.push("/students");
+        this.props.history.push("/login");
       });
     }, 3000);
   };

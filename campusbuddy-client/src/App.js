@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import AboutPage from "./components/AboutPage";
 import AdminLoginComponent from "./components/admins/AdminLoginComponent";
 import FooterComponent from "./components/FooterComponent";
 import HomePage from "./components/HomePage";
@@ -17,6 +18,7 @@ import EditProfile from "./components/students/dashboard/EditProfile";
 import EditProfileAdminView from "./components/admins/dashboard/EditProfile";
 import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
 import AdminDashBoard from "./components/admins/dashboard/AdminDashBoard";
+import ContactPage from "./components/ContactPage";
 
 function App() {
   return (
@@ -45,6 +47,9 @@ function App() {
           path="/admins/edit-student-profile"
           component={EditProfileAdminView}
         ></Route>
+
+        <Route path="/about" component={AboutPage}></Route>
+        <Route path="/contact" component={ContactPage}></Route>
       </Switch>
 
       <FooterComponent />

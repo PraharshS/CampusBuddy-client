@@ -147,14 +147,12 @@ export default class EditProfile extends Component {
     if (!isValidRestFields) {
       return;
     }
-    console.log("Student => " + JSON.stringify(Student));
     this.setState({ alertMessage: "Account Details Updated Successfully" });
     this.setState({ isAlertShow: true });
     this.setState({ alertType: "success" });
     setTimeout(() => {
       StudentService.updateStudent(Student, this.state.id).then((res) => {
-        console.log(res);
-        this.props.history.push("/students");
+        this.props.history.push("/student/dashboard", Student);
       });
     }, 3000);
   };
@@ -163,15 +161,21 @@ export default class EditProfile extends Component {
     const { history } = this.props;
     return (
       <div>
-        <div className="container">
+        <div className="container" style={containerStyle.div}>
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
-              <h3 className="text-center">Edit your Student Details</h3>
+            <div
+              className="card col-md-6 offset-md-3 offset-md-3"
+              style={containerStyle.card}
+            >
+              <h3 className="text-center" style={containerStyle.heading}>
+                Edit your Student Details
+              </h3>
               <div className="card-body">
                 <form action="">
                   <div className="form-group">
-                    <label>Name</label>
+                    <label style={containerStyle.label}>Name</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Name"
                       className="form-control"
@@ -180,8 +184,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email</label>
+                    <label style={containerStyle.label}>Email</label>
                     <input
+                      style={containerStyle.input}
                       type="email"
                       placeholder="Email"
                       className="form-control"
@@ -190,8 +195,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Password</label>
+                    <label style={containerStyle.label}>Password</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Password"
                       className="form-control"
@@ -200,8 +206,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Confirm Password</label>
+                    <label style={containerStyle.label}>Confirm Password</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Confirm Password"
                       className="form-control"
@@ -210,8 +217,11 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Enrollment Number</label>
+                    <label style={containerStyle.label}>
+                      Enrollment Number
+                    </label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Enrollment Number"
                       className="form-control"
@@ -220,8 +230,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Branch</label>
+                    <label style={containerStyle.label}>Branch</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Branch"
                       className="form-control"
@@ -230,8 +241,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Semester</label>
+                    <label style={containerStyle.label}>Semester</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Semester"
                       className="form-control"
@@ -240,8 +252,9 @@ export default class EditProfile extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Contact Number</label>
+                    <label style={containerStyle.label}>Contact Number</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Contact Number"
                       className="form-control"
@@ -249,19 +262,21 @@ export default class EditProfile extends Component {
                       onChange={this.changeContactNumberHandler}
                     />
                   </div>
-                  <div
-                    className="btn btn-success"
-                    onClick={this.saveStudent}
-                    style={{ marginTop: "10px" }}
-                  >
-                    Save
-                  </div>
-                  <div
-                    className="btn btn-danger"
-                    onClick={() => history.push("/students")}
-                    style={{ marginLeft: "10px", marginTop: "10px" }}
-                  >
-                    Cancel
+                  <div style={containerStyle.btnWrapper}>
+                    <div
+                      className="btn btn-success"
+                      onClick={this.saveStudent}
+                      style={containerStyle.SaveButton}
+                    >
+                      Save
+                    </div>
+                    <div
+                      className="btn btn-danger"
+                      onClick={() => history.push("/students")}
+                      style={containerStyle.cancelButton}
+                    >
+                      Cancel
+                    </div>
                   </div>
                 </form>
                 <Alert
@@ -279,3 +294,49 @@ export default class EditProfile extends Component {
     );
   }
 }
+
+var containerStyle = {
+  div: {
+    marginTop: "4rem",
+    width: "80%",
+  },
+  heading: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    padding: "2rem",
+  },
+  card: {
+    border: "4px solid #6C63FF",
+  },
+  label: {
+    fontSize: "1.2rem",
+    margin: "0.7rem auto",
+  },
+  input: {
+    padding: "1rem 1rem",
+    fontWeight: "bold",
+  },
+  btnWrapper: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  SaveButton: {
+    marginTop: "1rem",
+    marginRight: "2rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
+    borderRadius: "0",
+    border: "2px solid black",
+    width: "30%",
+  },
+  cancelButton: {
+    marginTop: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "red",
+    borderRadius: "0",
+    border: "2px solid black",
+    width: "30%",
+  },
+};

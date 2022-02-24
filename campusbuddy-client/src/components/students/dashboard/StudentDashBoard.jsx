@@ -47,7 +47,7 @@ export default class StudentDashBoard extends Component {
                       state: this.state.studentObj,
                     }}
                   >
-                    <Button>Click Here</Button>
+                    <Button style={tableStyle.btn}>Click Here</Button>
                   </Link>
                 </td>
               </tr>
@@ -75,5 +75,9 @@ var tableStyle = {
   col: {
     fontWeight: "bold",
     verticalAlign: "middle",
+  },
+  btn: {
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
   },
 };
