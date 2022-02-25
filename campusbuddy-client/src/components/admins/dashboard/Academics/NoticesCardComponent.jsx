@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import cardBg from "../../../../assets/images/noticesCard.png";
 export default class NoticesCardComponent extends Component {
   render() {
     return (
       <div style={cardStyle.div}>
+        {console.log(this.props.props.props)}
         <Card.Img variant="top" src={cardBg} style={cardStyle.img} />
         <Card.Body>
           <Card.Title>Notices</Card.Title>
           <Card.Text>Info about all the events , activites etc.</Card.Text>
-          <Button href="notices" variant="primary">
-            Click Here
-          </Button>
+          <Link
+            to={{
+              pathname: "notices",
+              state: this.props.props.props,
+            }}
+          >
+            <Button style={cardStyle.btn}>Click Here</Button>
+          </Link>
         </Card.Body>
       </div>
     );
@@ -30,5 +37,8 @@ var cardStyle = {
     width: "300px",
     height: "300px",
     margin: "auto",
+  },
+  btn: {
+    backgroundColor: "#6C63FF",
   },
 };

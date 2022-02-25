@@ -31,6 +31,7 @@ export default class Feedback extends Component {
       email: this.state.email,
       message: this.state.message,
     };
+    console.log(feedBackObj);
     if (feedBackObj.message.length === 0) {
       this.setState({ alertMessage: "Feedback message cannot be empty" });
       this.setState({ isAlertShow: true });
@@ -123,7 +124,7 @@ export default class Feedback extends Component {
 var containerStyle = {
   div: {
     marginTop: "4rem",
-    width: "60%",
+    width: "70%",
     paddingBottom: "2rem",
   },
   heading: {

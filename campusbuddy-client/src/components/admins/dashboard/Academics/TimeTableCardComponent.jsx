@@ -11,7 +11,7 @@ export default class TimeTableCardComponent extends Component {
           <Card.Text>
             Info about the class timings, professors, lecture halls etc
           </Card.Text>
-          <Button href="time-table" variant="primary">
+          <Button href="time-table" variant="primary" style={cardStyle.btn}>
             Click Here
           </Button>
         </Card.Body>
@@ -32,5 +32,8 @@ var cardStyle = {
     width: "300px",
     height: "300px",
     margin: "auto",
+  },
+  btn: {
+    backgroundColor: "#6C63FF",
   },
 };

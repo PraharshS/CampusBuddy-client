@@ -19,6 +19,7 @@ import EditProfileAdminView from "./components/admins/dashboard/EditProfile";
 import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
 import AdminDashBoard from "./components/admins/dashboard/AdminDashBoard";
 import ContactPage from "./components/ContactPage";
+import NoticesAdminView from "./components/admins/dashboard/Academics/NoticesAdminView";
 
 function App() {
   return (
@@ -47,7 +48,9 @@ function App() {
           path="/admins/edit-student-profile"
           component={EditProfileAdminView}
         ></Route>
-
+        <Route path="/admins/time-table" component={TimeTable}></Route>
+        <Route path="/admins/holidays" component={Holidays}></Route>
+        <Route path="/admins/notices" component={NoticesAdminView}></Route>
         <Route path="/about" component={AboutPage}></Route>
         <Route path="/contact" component={ContactPage}></Route>
       </Switch>

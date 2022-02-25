@@ -84,12 +84,17 @@ export default class AdminLoginComponent extends Component {
     return (
       <div className="container" style={containerStyle.div}>
         <div className="row">
-          <div className="card col-md-6 offset-md-3 offset-md-3">
-            <h3 className="text-center">Login your Admin Account</h3>
+          <div
+            className="card col-md-6 offset-md-3 offset-md-3"
+            style={containerStyle.card}
+          >
+            <h3 className="text-center" style={containerStyle.heading}>
+              Admin Login
+            </h3>
             <div className="card-body">
               <form>
                 <div className="form-group">
-                  <label>Email</label>
+                  <label style={containerStyle.label}>Email</label>
                   <input
                     type="email"
                     placeholder="Email"
@@ -99,7 +104,7 @@ export default class AdminLoginComponent extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Password</label>
+                  <label style={containerStyle.label}>Password</label>
                   <input
                     type="text"
                     placeholder="Password"
@@ -132,14 +137,40 @@ export default class AdminLoginComponent extends Component {
     );
   }
 }
-var containerStyle = {};
+var containerStyle = {
+  div: {
+    marginTop: "4rem",
+    width: "80%",
+  },
+  heading: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    padding: "2rem",
+  },
+  card: {
+    border: "4px solid #6C63FF",
+  },
+  label: {
+    fontSize: "1.2rem",
+    margin: "0.7rem auto",
+  },
+  input: {
+    padding: "1rem 1rem",
+    fontWeight: "bold",
+  },
+};
 var loginButtonStyle = {
   parent: {
     display: "flex",
     justifyContent: "center",
   },
   button: {
+    marginTop: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
+    borderRadius: "0",
+    border: "2px solid black",
     width: "30%",
-    marginTop: "10px",
   },
 };

@@ -26,25 +26,28 @@ export default class AllStudents extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Students List</h2>
+        <h2 style={StudentsTableStyle.heading}>Students List</h2>
         <div className="row">
-          <table className="table table-striped table-borderded">
+          <table
+            style={StudentsTableStyle.table}
+            className="table table-striped table-borderded"
+          >
             <thead>
-              <tr>
-                <th>Student Name</th>
-                <th>Student Email</th>
-                <th>Student Semester</th>
-                <th>Student Branch</th>
-                <th>Actions</th>
+              <tr style={StudentsTableStyle.tr}>
+                <th style={StudentsTableStyle.th}>Student Name</th>
+                <th style={StudentsTableStyle.th}>Student Email</th>
+                <th style={StudentsTableStyle.th}>Student Semester</th>
+                <th style={StudentsTableStyle.th}>Student Branch</th>
+                <th style={StudentsTableStyle.th}>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody style={StudentsTableStyle.tbody}>
               {this.state.students.map((student) => (
                 <tr key={student.id}>
-                  <td>{student.name}</td>
-                  <td>{student.email}</td>
-                  <td>{student.semester}</td>
-                  <td>{student.branch}</td>
+                  <td style={StudentsTableStyle.td}>{student.name}</td>
+                  <td style={StudentsTableStyle.td}>{student.email}</td>
+                  <td style={StudentsTableStyle.td}>{student.semester}</td>
+                  <td style={StudentsTableStyle.td}>{student.branch}</td>
                   <td>
                     <Link
                       to={{
@@ -52,7 +55,7 @@ export default class AllStudents extends Component {
                         state: student,
                       }}
                     >
-                      <Button>Edit</Button>
+                      <Button style={StudentsTableStyle.editBtn}>Edit</Button>
                     </Link>
                     <Button
                       className="mx-2"
@@ -71,3 +74,38 @@ export default class AllStudents extends Component {
     );
   }
 }
+
+var StudentsTableStyle = {
+  heading: {
+    textAlign: "center",
+    fontSize: "3rem",
+    fontWeight: "bold",
+    margin: "2rem auto",
+  },
+  table: {
+    border: "2px solid black",
+    boxShadow: "6px 6px 2px black",
+    backgroundColor: "#6C63FF",
+  },
+  tr: {
+    padding: "2rem 1rem",
+    margin: "1rem",
+  },
+  th: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    color: "white",
+    padding: "1rem 1rem",
+  },
+  td: {
+    fontSize: "1.2rem",
+    fontWeight: "300",
+    color: "white",
+    padding: "1rem 1rem",
+  },
+  editBtn: {
+    fontWeight: "bold",
+    backgroundColor: "white",
+    color: "black",
+  },
+};

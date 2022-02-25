@@ -16,7 +16,7 @@ export default class FeedbackCardComponent extends Component {
               state: this.props.props.props,
             }}
           >
-            <Button>Click Here</Button>
+            <Button style={cardStyle.btn}>Click Here</Button>
           </Link>
         </Card.Body>
       </div>
@@ -36,5 +36,8 @@ var cardStyle = {
     width: "300px",
     height: "300px",
     margin: "auto",
+  },
+  btn: {
+    backgroundColor: "#6C63FF",
   },
 };

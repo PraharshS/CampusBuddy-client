@@ -12,7 +12,7 @@ export default class AcademicComponent extends Component {
       <div className="container" style={cardsWrapperStyle.div}>
         <TimeTableCardComponent />
         <HolidayCardComponent />
-        <NoticesCardComponent />
+        <NoticesCardComponent props={this.props} />
         <FeedbackCardComponent props={this.props} />
       </div>
     );

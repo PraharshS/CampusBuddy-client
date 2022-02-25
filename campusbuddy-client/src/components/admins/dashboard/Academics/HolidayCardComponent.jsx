@@ -11,7 +11,7 @@ export default class HolidayCardComponent extends Component {
           <Card.Text>
             Check the holiday calender so you can plan your vacation
           </Card.Text>
-          <Button href="holidays" variant="primary">
+          <Button href="holidays" variant="primary" style={cardStyle.btn}>
             Click Here
           </Button>
         </Card.Body>
@@ -34,14 +34,7 @@ var cardStyle = {
     height: "300px",
     margin: "auto",
   },
+  btn: {
+    backgroundColor: "#6C63FF",
+  },
 };
-{
-  /* <Link
-            to={{
-              pathname: "feedback",
-              state: this.props.props,
-            }}
-          >
-            Feedback
-          </Link> */
-}

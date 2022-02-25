@@ -39,7 +39,7 @@ export default class StudentDashBoard extends Component {
                       state: this.state.adminObj,
                     }}
                   >
-                    <Button>Click Here</Button>
+                    <Button style={tableStyle.btn}>Click Here</Button>
                   </Link>
                 </td>
               </tr>
@@ -58,7 +58,6 @@ var dashboardStyle = {
     textAlign: "center",
   },
 };
-
 var tableStyle = {
   table: {},
   row: {
@@ -67,5 +66,9 @@ var tableStyle = {
   col: {
     fontWeight: "bold",
     verticalAlign: "middle",
+  },
+  btn: {
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
   },
 };

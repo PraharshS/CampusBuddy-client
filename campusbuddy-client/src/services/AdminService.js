@@ -25,5 +25,12 @@ class AdminService {
   sendFeedback(feedbackObj) {
     return axios.post(STUDENT_API_BASE_URL + "/admin/feedback", feedbackObj);
   }
+
+  addNotice(noticeObj) {
+    return axios.post(STUDENT_API_BASE_URL + "/admin/notice", noticeObj);
+  }
+  fetchNotices() {
+    return axios.get(STUDENT_API_BASE_URL + "/admin/all-notices");
+  }
 }
 export default new AdminService();
