@@ -18,6 +18,9 @@ class StudentService {
   getTimeTable() {
     return axios.get(STUDENT_API_BASE_URL + "/student/time-table");
   }
+  getNotices() {
+    return axios.get(STUDENT_API_BASE_URL + "/student/notices");
+  }
 
   sendFeedback(feedbackObj) {
     return axios.post(STUDENT_API_BASE_URL + "/student/feedback", feedbackObj);

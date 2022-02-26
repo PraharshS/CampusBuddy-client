@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
-import AcademicBg from "../../../../assets/images/Academics.png";
-import { Link } from "react-router-dom";
-import TimeTableCardComponent from "./TimeTableCardComponent";
+import FeedbackCardComponent from "./FeedbackCardComponent";
 import HolidayCardComponent from "./HolidayCardComponent";
 import NoticesCardComponent from "./NoticesCardComponent";
-import FeedbackCardComponent from "./FeedbackCardComponent";
+import TimeTableCardComponent from "./TimeTableCardComponent";
 export default class AcademicComponent extends Component {
   render() {
     return (
