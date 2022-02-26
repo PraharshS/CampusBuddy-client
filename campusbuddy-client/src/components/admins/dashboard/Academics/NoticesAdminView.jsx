@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Alert } from "react-bootstrap";
 import AdminService from "../../../../services/AdminService";
+import { Link } from "react-router-dom";
 export default class NoticesAdminView extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +16,6 @@ export default class NoticesAdminView extends Component {
     this.changeTypeHandler = this.changeTypeHandler.bind(this);
     this.changeDescriptionHandler = this.changeDescriptionHandler.bind(this);
     this.addNotice = this.addNotice.bind(this);
-  }
-  componentDidMount() {
-    AdminService.fetchNotices().then((res) => {
-      console.log(res.data);
-    });
   }
   changeTypeHandler = (e) => {
     this.setState({ type: e.target.value });
@@ -102,14 +98,28 @@ export default class NoticesAdminView extends Component {
                     style={containerStyle.input}
                   />
                 </div>
-                <div className="form-group" style={loginButtonStyle.parent}>
+                <div className="form-group" style={addButtonStyle.parent}>
                   <div
                     className="btn btn-primary"
                     onClick={this.addNotice}
-                    style={loginButtonStyle.button}
+                    style={addButtonStyle.button}
                   >
-                    Login
+                    Add Notice
                   </div>
+                  <Link
+                    to={{
+                      pathname: "all-notices",
+                      state: this.state.admin,
+                    }}
+                  >
+                    <div
+                      className="btn btn-primary"
+                      onClick={this.viewAllNotices}
+                      style={addButtonStyle.button}
+                    >
+                      View All Notices
+                    </div>
+                  </Link>
                 </div>
               </form>
               <Alert
@@ -148,18 +158,20 @@ var containerStyle = {
     fontWeight: "bold",
   },
 };
-var loginButtonStyle = {
+var addButtonStyle = {
   parent: {
     display: "flex",
+    flexWrap: "no-wrap",
     justifyContent: "center",
   },
   button: {
     marginTop: "1rem",
+    margin: "1rem",
     fontSize: "1.2rem",
     fontWeight: "bold",
     backgroundColor: "#6C63FF",
     borderRadius: "0",
     border: "2px solid black",
-    width: "30%",
+    width: "40%",
   },
 };

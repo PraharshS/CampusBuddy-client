@@ -51,6 +51,7 @@ function App() {
         <Route path="/admins/time-table" component={TimeTable}></Route>
         <Route path="/admins/holidays" component={Holidays}></Route>
         <Route path="/admins/notices" component={NoticesAdminView}></Route>
+        <Route path="/admins/all-notices" component={Notices}></Route>
         <Route path="/about" component={AboutPage}></Route>
         <Route path="/contact" component={ContactPage}></Route>
       </Switch>
