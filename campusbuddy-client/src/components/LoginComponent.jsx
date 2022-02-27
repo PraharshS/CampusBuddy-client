@@ -139,7 +139,7 @@ export default class LoginComponent extends Component {
 var containerStyle = {
   div: {
     marginTop: "4rem",
-    width: "60%",
+    width: "80%",
   },
   heading: {
     fontSize: "2.5rem",

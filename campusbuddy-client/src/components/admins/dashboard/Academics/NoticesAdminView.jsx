@@ -45,10 +45,7 @@ export default class NoticesAdminView extends Component {
     return (
       <div className="container" style={containerStyle.div}>
         <div className="row">
-          <div
-            className="card col-md-6 offset-md-3 offset-md-3"
-            style={containerStyle.card}
-          >
+          <div className="card" style={containerStyle.card}>
             <h3 className="text-center" style={containerStyle.heading}>
               Add Notice
             </h3>
@@ -104,22 +101,24 @@ export default class NoticesAdminView extends Component {
                     onClick={this.addNotice}
                     style={addButtonStyle.button}
                   >
-                    Add Notice
+                    <h4 style={addButtonStyle.h4}> Add Notice</h4>
                   </div>
-                  <Link
-                    to={{
-                      pathname: "all-notices",
-                      state: this.state.admin,
-                    }}
-                  >
-                    <div
-                      className="btn btn-primary"
-                      onClick={this.viewAllNotices}
-                      style={addButtonStyle.button}
+                  <div>
+                    <Link
+                      to={{
+                        pathname: "all-notices",
+                        state: this.state.admin,
+                      }}
                     >
-                      View All Notices
-                    </div>
-                  </Link>
+                      <div
+                        className="btn btn-primary"
+                        onClick={this.viewAllNotices}
+                        style={addButtonStyle.button}
+                      >
+                        <h4 style={addButtonStyle.h4}> View All Notices</h4>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </form>
               <Alert
@@ -139,7 +138,7 @@ export default class NoticesAdminView extends Component {
 var containerStyle = {
   div: {
     marginTop: "4rem",
-    width: "80%",
+    width: "60%",
   },
   heading: {
     fontSize: "2.5rem",
@@ -165,13 +164,18 @@ var addButtonStyle = {
     justifyContent: "center",
   },
   button: {
-    marginTop: "1rem",
-    margin: "1rem",
-    fontSize: "1.2rem",
-    fontWeight: "bold",
+    margin: "2rem",
     backgroundColor: "#6C63FF",
     borderRadius: "0",
     border: "2px solid black",
-    width: "40%",
+    width: "200px",
+    height: "60px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  h4: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
   },
 };

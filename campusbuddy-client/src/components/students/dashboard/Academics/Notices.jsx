@@ -5,15 +5,11 @@ export default class Notices extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      adminName: "",
-      adminEmail: "",
       noticeList: [],
     };
   }
   componentDidMount() {
     StudentService.getNotices().then((res) => {
-      this.setState({ adminName: this.props.history.location.state.name });
-      this.setState({ adminEmail: this.props.history.location.state.email });
       this.setState({ noticeList: res.data });
     });
   }
@@ -41,8 +37,8 @@ export default class Notices extends Component {
                 <tr key={element.id}>
                   <td style={noticeTableStyle.td}>{element.type}</td>
                   <td style={noticeTableStyle.td}>{element.description}</td>
-                  <td style={noticeTableStyle.td}>{this.state.adminName}</td>
-                  <td style={noticeTableStyle.td}>{this.state.adminEmail}</td>
+                  <td style={noticeTableStyle.td}>{element.admin.name}</td>
+                  <td style={noticeTableStyle.td}>{element.admin.email}</td>
                 </tr>
               ))}
             </tbody>

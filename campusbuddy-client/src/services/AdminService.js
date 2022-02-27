@@ -32,5 +32,8 @@ class AdminService {
   fetchNotices() {
     return axios.get(STUDENT_API_BASE_URL + "/admin/all-notices");
   }
+  getFeedbacks() {
+    return axios.get(STUDENT_API_BASE_URL + "/admin/feedbacks");
+  }
 }
 export default new AdminService();

@@ -12,7 +12,7 @@ export default class FeedbackCardComponent extends Component {
           <Card.Text>Submit a feedback about the portal, college etc</Card.Text>
           <Link
             to={{
-              pathname: "feedback",
+              pathname: "feedbacks",
               state: this.props.props.props,
             }}
           >

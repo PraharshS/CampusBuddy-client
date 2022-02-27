@@ -20,6 +20,7 @@ import StudentDashBoard from "./components/students/dashboard/StudentDashBoard";
 import AdminDashBoard from "./components/admins/dashboard/AdminDashBoard";
 import ContactPage from "./components/ContactPage";
 import NoticesAdminView from "./components/admins/dashboard/Academics/NoticesAdminView";
+import AllFeedbacks from "./components/admins/dashboard/Academics/AllFeedbacks";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         <Route path="/admins/time-table" component={TimeTable}></Route>
         <Route path="/admins/holidays" component={Holidays}></Route>
         <Route path="/admins/notices" component={NoticesAdminView}></Route>
+        <Route path="/admins/feedbacks" component={AllFeedbacks}></Route>
         <Route path="/admins/all-notices" component={Notices}></Route>
         <Route path="/about" component={AboutPage}></Route>
         <Route path="/contact" component={ContactPage}></Route>
