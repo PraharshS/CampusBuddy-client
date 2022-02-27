@@ -31,7 +31,6 @@ export default class Feedback extends Component {
       email: this.state.email,
       message: this.state.message,
     };
-    console.log(feedBackObj);
     if (feedBackObj.message.length === 0) {
       this.setState({ alertMessage: "Feedback message cannot be empty" });
       this.setState({ isAlertShow: true });
@@ -55,10 +54,7 @@ export default class Feedback extends Component {
       <div>
         <div className="container" style={containerStyle.div}>
           <div className="row">
-            <div
-              className="card col-md-6 offset-md-3 offset-md-3"
-              style={containerStyle.card}
-            >
+            <div className="card" style={containerStyle.card}>
               <h3 className="text-center" style={containerStyle.heading}>
                 Feedback Form
               </h3>
@@ -96,11 +92,11 @@ export default class Feedback extends Component {
                       onChange={this.changeMessageHandler}
                     />
                   </div>
-                  <div style={submitButtonStyle.buttonWrapper}>
+                  <div className="form-group" style={loginButtonStyle.parent}>
                     <div
                       className="btn btn-success"
                       onClick={this.sendFeedback}
-                      style={submitButtonStyle.button}
+                      style={loginButtonStyle.button}
                     >
                       Submit
                     </div>
@@ -124,8 +120,8 @@ export default class Feedback extends Component {
 var containerStyle = {
   div: {
     marginTop: "4rem",
-    width: "70%",
-    paddingBottom: "2rem",
+    maxWidth: "400px",
+    width: "80%",
   },
   heading: {
     fontSize: "2.5rem",
@@ -144,8 +140,8 @@ var containerStyle = {
     fontWeight: "bold",
   },
 };
-var submitButtonStyle = {
-  buttonWrapper: {
+var loginButtonStyle = {
+  parent: {
     display: "flex",
     justifyContent: "center",
   },

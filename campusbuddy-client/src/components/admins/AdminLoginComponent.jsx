@@ -84,10 +84,7 @@ export default class AdminLoginComponent extends Component {
     return (
       <div className="container" style={containerStyle.div}>
         <div className="row">
-          <div
-            className="card col-md-6 offset-md-3 offset-md-3"
-            style={containerStyle.card}
-          >
+          <div className="card" style={containerStyle.card}>
             <h3 className="text-center" style={containerStyle.heading}>
               Admin Login
             </h3>
@@ -140,6 +137,7 @@ export default class AdminLoginComponent extends Component {
 var containerStyle = {
   div: {
     marginTop: "4rem",
+    maxWidth: "400px",
     width: "80%",
   },
   heading: {

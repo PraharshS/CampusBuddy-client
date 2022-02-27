@@ -159,15 +159,18 @@ class SignupComponent extends Component {
     const { history } = this.props;
     return (
       <div>
-        <div className="container">
+        <div className="container" style={containerStyle.div}>
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
-              <h3 className="text-center">Create your Student Account</h3>
+            <div className="card" style={containerStyle.card}>
+              <h3 className="text-center" style={containerStyle.heading}>
+                Create Student
+              </h3>
               <div className="card-body">
                 <form action="">
                   <div className="form-group">
-                    <label>Name</label>
+                    <label style={containerStyle.label}>Name</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Name"
                       className="form-control"
@@ -176,8 +179,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email</label>
+                    <label style={containerStyle.label}>Email</label>
                     <input
+                      style={containerStyle.input}
                       type="email"
                       placeholder="Email"
                       className="form-control"
@@ -186,8 +190,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Password</label>
+                    <label style={containerStyle.label}>Password</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Password"
                       className="form-control"
@@ -196,8 +201,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Confirm Password</label>
+                    <label style={containerStyle.label}>Confirm Password</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Confirm Password"
                       className="form-control"
@@ -206,8 +212,11 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Enrollment Number</label>
+                    <label style={containerStyle.label}>
+                      Enrollment Number
+                    </label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Enrollment Number"
                       className="form-control"
@@ -216,8 +225,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Branch</label>
+                    <label style={containerStyle.label}>Branch</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Branch"
                       className="form-control"
@@ -226,8 +236,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Semester</label>
+                    <label style={containerStyle.label}>Semester</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Semester"
                       className="form-control"
@@ -236,8 +247,9 @@ class SignupComponent extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Contact Number</label>
+                    <label style={containerStyle.label}>Contact Number</label>
                     <input
+                      style={containerStyle.input}
                       type="text"
                       placeholder="Contact Number"
                       className="form-control"
@@ -245,19 +257,21 @@ class SignupComponent extends Component {
                       onChange={this.changeContactNumberHandler}
                     />
                   </div>
-                  <div
-                    className="btn btn-success"
-                    onClick={this.saveStudent}
-                    style={{ marginTop: "10px" }}
-                  >
-                    Save
-                  </div>
-                  <div
-                    className="btn btn-danger"
-                    onClick={() => history.push("/students")}
-                    style={{ marginLeft: "10px", marginTop: "10px" }}
-                  >
-                    Cancel
+                  <div className="form-group" style={loginButtonStyle.parent}>
+                    <div
+                      className="btn btn-success"
+                      onClick={this.saveStudent}
+                      style={loginButtonStyle.button1}
+                    >
+                      Save
+                    </div>
+                    <div
+                      className="btn btn-danger"
+                      onClick={() => history.push("/students")}
+                      style={loginButtonStyle.button2}
+                    >
+                      Cancel
+                    </div>
                   </div>
                 </form>
                 <Alert
@@ -275,5 +289,53 @@ class SignupComponent extends Component {
     );
   }
 }
+var containerStyle = {
+  div: {
+    marginTop: "4rem",
+    maxWidth: "400px",
+    width: "80%",
+  },
+  heading: {
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    padding: "2rem",
+  },
+  card: {
+    border: "4px solid #6C63FF",
+  },
+  label: {
+    fontSize: "1.2rem",
+    margin: "0.7rem auto",
+  },
+  input: {
+    padding: "1rem 1rem",
+    fontWeight: "bold",
+  },
+};
+var loginButtonStyle = {
+  parent: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  button1: {
+    marginTop: "1rem",
+    marginRight: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "#6C63FF",
+    borderRadius: "0",
+    border: "2px solid black",
+    width: "30%",
+  },
+  button2: {
+    marginTop: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    backgroundColor: "red",
+    borderRadius: "0",
+    border: "2px solid black",
+    width: "30%",
+  },
+};
 
 export default SignupComponent;
