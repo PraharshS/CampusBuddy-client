@@ -10,8 +10,8 @@ export default class EditProfile extends Component {
       id: studentOldInfo.id,
       name: studentOldInfo.name,
       email: studentOldInfo.email,
-      password: studentOldInfo.password,
-      confirmPassword: studentOldInfo.password,
+      // password: studentOldInfo.password,
+      // confirmPassword: studentOldInfo.password,
       enNumber: studentOldInfo.enNumber,
       branch: studentOldInfo.branch,
       semester: studentOldInfo.semester,
@@ -22,9 +22,9 @@ export default class EditProfile extends Component {
     };
     this.changeNameHandler = this.changeNameHandler.bind(this);
     this.changeEmailHandler = this.changeEmailHandler.bind(this);
-    this.changePasswordHandler = this.changePasswordHandler.bind(this);
-    this.changeConfirmPasswordHandler =
-      this.changeConfirmPasswordHandler.bind(this);
+    // this.changePasswordHandler = this.changePasswordHandler.bind(this);
+    // this.changeConfirmPasswordHandler =
+    //   this.changeConfirmPasswordHandler.bind(this);
     this.changeEnNumberHandler = this.changeEnNumberHandler.bind(this);
     this.changeBranchHandler = this.changeBranchHandler.bind(this);
     this.changeSemesterHandler = this.changeSemesterHandler.bind(this);
@@ -39,12 +39,12 @@ export default class EditProfile extends Component {
   changeEmailHandler = (e) => {
     this.setState({ email: e.target.value });
   };
-  changePasswordHandler = (e) => {
-    this.setState({ password: e.target.value });
-  };
-  changeConfirmPasswordHandler = (e) => {
-    this.setState({ confirmPassword: e.target.value });
-  };
+  // changePasswordHandler = (e) => {
+  //   this.setState({ password: e.target.value });
+  // };
+  // changeConfirmPasswordHandler = (e) => {
+  //   this.setState({ confirmPassword: e.target.value });
+  // };
   changeEnNumberHandler = (e) => {
     this.setState({ enNumber: e.target.value });
   };
@@ -78,22 +78,22 @@ export default class EditProfile extends Component {
     this.setState({ isAlertShow: true });
     return false;
   }
-  passwordValidator(password) {
-    if (password.trim().length >= 6) {
-      return true;
-    }
-    this.setState({
-      alertMessage: "Password Length must be minimum 6 characters",
-    });
-    this.setState({ isAlertShow: true });
-    return false;
-  }
-  confirmPasswordValidator(confirmpassword) {
-    if (this.state.password === confirmpassword) return true;
-    this.setState({ alertMessage: "Passwords do not match" });
-    this.setState({ isAlertShow: true });
-    return false;
-  }
+  // passwordValidator(password) {
+  //   if (password.trim().length >= 6) {
+  //     return true;
+  //   }
+  //   this.setState({
+  //     alertMessage: "Password Length must be minimum 6 characters",
+  //   });
+  //   this.setState({ isAlertShow: true });
+  //   return false;
+  // }
+  // confirmPasswordValidator(confirmpassword) {
+  //   if (this.state.password === confirmpassword) return true;
+  //   this.setState({ alertMessage: "Passwords do not match" });
+  //   this.setState({ isAlertShow: true });
+  //   return false;
+  // }
   restFieldsValidator(enNumber, branch, semester, contactNumber) {
     var isValid = true;
     [enNumber, branch, semester, contactNumber].forEach((value) => {
@@ -112,8 +112,8 @@ export default class EditProfile extends Component {
       id: this.state.id,
       name: this.state.name,
       email: this.state.email,
-      password: this.state.password,
-      confirmPassword: this.state.confirmPassword,
+      // password: this.state.password,
+      // confirmPassword: this.state.confirmPassword,
       enNumber: this.state.enNumber,
       branch: this.state.branch,
       semester: this.state.semester,
@@ -128,16 +128,16 @@ export default class EditProfile extends Component {
     if (!isEmailValid) {
       return;
     }
-    var isPasswordValid = this.passwordValidator(this.state.password);
-    if (!isPasswordValid) {
-      return;
-    }
-    var isConfirmPasswordValid = this.confirmPasswordValidator(
-      this.state.confirmPassword
-    );
-    if (!isConfirmPasswordValid) {
-      return;
-    }
+    // var isPasswordValid = this.passwordValidator(this.state.password);
+    // if (!isPasswordValid) {
+    //   return;
+    // }
+    // var isConfirmPasswordValid = this.confirmPasswordValidator(
+    //   this.state.confirmPassword
+    // );
+    // if (!isConfirmPasswordValid) {
+    //   return;
+    // }
     var isValidRestFields = this.restFieldsValidator(
       this.state.enNumber,
       this.state.branch,
@@ -191,7 +191,7 @@ export default class EditProfile extends Component {
                       onChange={this.changeEmailHandler}
                     />
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label style={containerStyle.label}>Password</label>
                     <input
                       style={containerStyle.input}
@@ -212,7 +212,7 @@ export default class EditProfile extends Component {
                       value={this.state.confirmPassword}
                       onChange={this.changeConfirmPasswordHandler}
                     />
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <label style={containerStyle.label}>
                       Enrollment Number

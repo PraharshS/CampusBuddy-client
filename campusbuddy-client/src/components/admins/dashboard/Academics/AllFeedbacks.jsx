@@ -17,7 +17,7 @@ export default class AllFeedbacks extends Component {
     return (
       <div className="container">
         <h2 className="text-center" style={feedbackTableStyle.heading}>
-          Notices
+          Feedbacks
         </h2>
         <div className="row">
           <table

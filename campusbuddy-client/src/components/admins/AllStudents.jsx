@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import AdminService from "../../services/AdminService";
-import StudentService from "../../services/StudentService";
 export default class AllStudents extends Component {
   constructor(props) {
     super(props);
